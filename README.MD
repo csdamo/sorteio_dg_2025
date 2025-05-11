@@ -1,24 +1,17 @@
 📝 Descrição
 
 Este projeto é um sistema de sorteio desenvolvido em Flask que permite:
-
 Upload de arquivos CSV com participantes
-
 Realização de sorteios aleatórios
-
 Visualização dos resultados
-
 Gerenciamento de múltiplos sorteios
 
 
 🛠️ Pré-requisitos
 
 Antes de começar, verifique se você possui instalado em sua máquina:
-
 Python 3.13 ou superior
-
 pip (gerenciador de pacotes do Python)
-
 Git (opcional, para clonar o repositório)
 
 
@@ -34,14 +27,13 @@ cd sorteio-flask
 2. Crie um ambiente virtual (recomendado)
 bash
 python -m venv venv
+
 Ative o ambiente virtual:
 Windows:
-
 bash
 venv\Scripts\activate
 
 Linux/MacOS:
-
 bash
 source venv/bin/activate
 
@@ -80,7 +72,7 @@ http://localhost:5000
 
 Página Inicial:
 
-Selecione o tipo de sorteio (Carro ou Computador)
+Selecione o tipo de sorteio
 
 Faça upload do arquivo CSV com os participantes
 
