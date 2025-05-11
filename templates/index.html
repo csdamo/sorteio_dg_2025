@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Sorteios <span class="dj">Django Girls 2025</span></h1>
+
+<p>Selecione o tipo de sorteio e faça upload do arquivo CSV:</p>
+
+<form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+    <div class="sorteio-options">
+        <div class="form-group">
+            <label for="tipo_sorteio">Tipo de Sorteio:</label>
+            <select name="tipo_sorteio" id="tipo_sorteio" required>
+                <option value="">Selecione...</option>
+                <option value="evento">Startup Weekend</option>
+                <option value="bolsa">Rocketseat</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="arquivo_csv">Arquivo CSV:</label>
+            <input type="file" name="arquivo_csv" id="arquivo_csv" accept=".csv" required>
+        </div>
+    </div>
+    <div class="button-container">
+        <button type="submit" class="btn-sorteio">Enviar e Iniciar Sorteio</button>
+    </div>
+</form> 
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div class="flash-messages">
+            {% for category, message in messages %}
+                <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
+{% endblock %}

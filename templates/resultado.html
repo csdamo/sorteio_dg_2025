@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="modal-detalhes">
+    <h2>Detalhes do Sorteado</h2>
+    
+    <div class="detalhes">
+        <p><strong>Nome:</strong> {{ participante.nome }}</p>
+        <p><strong>E-mail:</strong> {{ participante.email }}</p>
+        <p><strong>Telefone:</strong> {{ participante.telefone }}</p>
+        <p><strong>Data/Hora do Cadastro:</strong> {{ participante.timestamp }}</p>
+    </div>
+    
+    <button onclick="window.close()" class="btn-acao">Fechar</button>
+</div>
+{% endblock %}

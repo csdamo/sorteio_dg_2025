@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Sorteio {{ "Startup Weekend" if tipo_sorteio == "evento" else "Rocketseat" }}</h1>
+
+{% if sorteados %}
+    <h2>Sorteados:</h2>
+    <ul class="lista-sorteados">
+        {% for nome in sorteados %}
+            <li>
+                {{loop.index}} - {{ nome }}
+                <a href="{{ url_for('detalhes_sorteado', nome=nome) }}" class="nome-sorteado" target="_blank">
+                    (ver detalhes)
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhum sorteado ainda.</p>
+{% endif %}
+
+<div class="acoes-sorteio">
+    <form action="{{ url_for('sortear') }}" method="post">
+        <button type="submit" class="btn-acao">Sortear Próximo</button>
+    </form>
+    
+    <form action="{{ url_for('encerrar_sorteio') }}" method="post" onsubmit="return confirm('Tem certeza que deseja encerrar este sorteio?');">
+        <input type="hidden" name="confirmacao" value="sim">
+        <button type="submit" class="btn-acao encerrar">Encerrar Sorteio</button>
+    </form>
+</div>
+
+<div>
+    <h2>Quem está participando:</h2>
+    {% for pessoa in todos_participantes %}
+        <li>
+            {{pessoa.nome}}
+        </li>
+    {% endfor %}
+</div>
+{% endblock %}

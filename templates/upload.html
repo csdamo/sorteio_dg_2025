@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Upload para Sorteio {{ "Startup Weekend" if tipo_sorteio == "evento" else "Rocketseat" }}</h1>
+
+<form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="tipo_sorteio" value="{{ tipo_sorteio }}">
+    
+    <div class="form-group">
+        <label for="arquivo_csv">Selecione o arquivo CSV:</label>
+        <input type="file" name="arquivo_csv" id="arquivo_csv" accept=".csv" required>
+    </div>
+    
+    <button type="submit" class="btn-sorteio">Enviar Arquivo</button>
+</form>
+
+<a href="{{ url_for('index') }}" class="btn-voltar">Voltar</a>
+{% endblock %}
