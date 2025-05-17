@@ -54,7 +54,7 @@ Substitua sua_chave_secreta_32_caracteres_aqui por uma string segura (você pode
 Crie as pastas necessárias:
 
 bash
-mkdir -p uploads/carro uploads/computador
+mkdir -p uploads/bolsa uploads/evento
 
 
 🏃 Executando o Projeto
